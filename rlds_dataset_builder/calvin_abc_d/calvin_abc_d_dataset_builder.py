@@ -113,12 +113,12 @@ class Builder(tfds.core.GeneratorBasedBuilder):
         }
 
     def _generate_examples(self, root):
-        def _parse_episode(idx, task):
+        def _parse_episode(task):
             start, end, lang = task
             sample = {
                 'steps': [get_data(root, idx, start, end, lang) for idx in range(start, end + 1)]
             }
-            return f'episode_{idx:07d}.npz', sample
+            return sample
             
         anno_path = os.path.join(root, 'lang_annotations/auto_lang_ann.npy')
         anno = np.load(anno_path, allow_pickle=True).item()
@@ -132,4 +132,4 @@ class Builder(tfds.core.GeneratorBasedBuilder):
         print('Total episodes:', len(tasks))
 
         for idx, task in enumerate(tasks):
-            yield _parse_episode(idx, task)
+            yield f'episode{idx}', _parse_episode(task)

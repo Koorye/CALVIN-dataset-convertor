@@ -1,0 +1,8 @@
+tensorflow==2.15.0
+tensorflow-addons==0.23.0
+tensorflow-datasets==4.9.7
+tensorflow-estimator==2.15.0
+tensorflow-graphics==2021.12.3
+tensorflow-io-gcs-filesystem==0.37.1
+tensorflow-metadata==1.16.1
+lerobot==0.3.3

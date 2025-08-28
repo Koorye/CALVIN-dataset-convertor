@@ -1,7 +1,6 @@
 .vscode
 
-lerobot_datasets
-tensorflow_datasets
+data/
 
 __pycache__
 *.pyc
